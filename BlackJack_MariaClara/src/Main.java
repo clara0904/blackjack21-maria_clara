@@ -30,10 +30,12 @@ public class Main {
 
             System.out.print("Deseja adicionar mais jogadores (S) (N): ");
             String x = scanner.next();
-            if(x.equals("S")){
+            if(x.equalsIgnoreCase("S")){
                 aux = true;
-            }else{
+            }else if (x.equalsIgnoreCase("N")){
                 aux = false;
+            }else{
+                System.out.println("Opcao Invalida!\n");
             }
         }
         System.out.println("\n");
@@ -58,9 +60,11 @@ public class Main {
             boolean hit=false;
             if (opcao == 1) {
                 hit = true;
+            }else{
+                System.out.println("Opcao Invalida!\n");
             }
             while (hit) {
-                carta = baralho.retornaCarta();     baralho.addCartasJogadas(carta);    baralho.removeCartaBaralho(carta);//remove para não ter carta repetida
+                carta = baralho.retornaCarta();     baralho.addCartasJogadas(carta);    baralho.removeCartaBaralho(carta);//remove para nï¿½o ter carta repetida
                 System.out.println("\n");
                 baralho.imprimeCartasJogadas();
                 System.out.println("Soma das cartas: "+baralho.somaCartas()+"\n");
@@ -81,6 +85,8 @@ public class Main {
                         hit=true;
                     } else if (opcao == 2) {
                         break;
+                    }else{
+                        System.out.println("Opcao Invalida!\n");
                     }
                 }
             }
@@ -90,7 +96,7 @@ public class Main {
             if(i>=jogadores.size()){ 
                 boolean teveBlackJack = false;
                 for (Jogador procuraVencedor : jogadores) {
-                    if(procuraVencedor.vencedor == true){   //busca por jogador único que fez blackjack
+                    if(procuraVencedor.vencedor == true){   //busca por jogador ï¿½nico que fez blackjack
                         resultadoPartida = "Jogador vencedor: "+procuraVencedor.nomeJogador;
                         teveBlackJack = true;
                     }
@@ -113,7 +119,7 @@ public class Main {
                 }
 
 
-                informacoesPartida.addPartida(contaPartidas, jogadores);    //adiciono as informações da partida
+                informacoesPartida.addPartida(contaPartidas, jogadores);    //adiciono as informaï¿½ï¿½es da partida
                 System.out.print("Deseja 1- Jogar nova partida 2- Parar: ");
                 opcao = scanner.nextInt();
                 if(opcao == 1) {
@@ -123,8 +129,10 @@ public class Main {
                     i=0;
                     partidaEmAndamento=true;
                 } else if (opcao == 2) {
-                    informacoesPartida.imprimeInformacoesPartidas();    //imprime todas as informações de todas as partidas
+                    informacoesPartida.imprimeInformacoesPartidas();    //imprime todas as informaï¿½ï¿½es de todas as partidas
                     partidaEmAndamento = false; 
+                }else{
+                    System.out.println("Opcao Invalida!\n");
                 }
             }
         }
