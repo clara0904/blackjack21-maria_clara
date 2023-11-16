@@ -36,6 +36,7 @@ public class Main {
                 aux = false;
             }else{
                 System.out.println("Opcao Invalida!\n");
+                break;
             }
         }
         System.out.println("\n");
@@ -60,6 +61,8 @@ public class Main {
             boolean hit=false;
             if (opcao == 1) {
                 hit = true;
+            }else if(opcao==2){
+                hit=false;
             }else{
                 System.out.println("Opcao Invalida!\n");
             }
@@ -133,6 +136,7 @@ public class Main {
                     partidaEmAndamento = false; 
                 }else{
                     System.out.println("Opcao Invalida!\n");
+                    break;
                 }
             }
         }
