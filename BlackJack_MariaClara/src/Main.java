@@ -67,7 +67,7 @@ public class Main {
                 System.out.println("Opcao Invalida!\n");
             }
             while (hit) {
-                carta = baralho.retornaCarta();     baralho.addCartasJogadas(carta);    baralho.removeCartaBaralho(carta);//remove para n�o ter carta repetida
+                carta = baralho.retornaCarta();     baralho.addCartasJogadas(carta);    baralho.removeCartaBaralho(carta);//remove para não ter carta repetida
                 System.out.println("\n");
                 baralho.imprimeCartasJogadas();
                 System.out.println("Soma das cartas: "+baralho.somaCartas()+"\n");
@@ -99,7 +99,7 @@ public class Main {
             if(i>=jogadores.size()){ 
                 boolean teveBlackJack = false;
                 for (Jogador procuraVencedor : jogadores) {
-                    if(procuraVencedor.vencedor == true){   //busca por jogador �nico que fez blackjack
+                    if(procuraVencedor.vencedor == true){   //busca por jogador único que fez blackjack
                         resultadoPartida = "Jogador vencedor: "+procuraVencedor.nomeJogador;
                         teveBlackJack = true;
                     }
@@ -122,7 +122,7 @@ public class Main {
                 }
 
 
-                informacoesPartida.addPartida(contaPartidas, jogadores);    //adiciono as informa��es da partida
+                informacoesPartida.addPartida(contaPartidas, jogadores);    //adiciono as informações da partida
                 System.out.print("Deseja 1- Jogar nova partida 2- Parar: ");
                 opcao = scanner.nextInt();
                 if(opcao == 1) {
@@ -132,7 +132,7 @@ public class Main {
                     i=0;
                     partidaEmAndamento=true;
                 } else if (opcao == 2) {
-                    informacoesPartida.imprimeInformacoesPartidas();    //imprime todas as informa��es de todas as partidas
+                    informacoesPartida.imprimeInformacoesPartidas();    //imprime todas as informações de todas as partidas
                     partidaEmAndamento = false; 
                 }else{
                     System.out.println("Opcao Invalida!\n");
