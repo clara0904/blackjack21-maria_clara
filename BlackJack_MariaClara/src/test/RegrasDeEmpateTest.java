@@ -1,4 +1,4 @@
-﻿package test;
+package test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,11 +18,11 @@ import models.Jogador;
  */
 
 public class RegrasDeEmpateTest {
-    private Baralho g;
+    private Baralho baralho;
 
     @BeforeEach
 	public void setup() {
-		g = new Baralho();
+		baralho = new Baralho();
 	}
 
     @ParameterizedTest
@@ -35,7 +35,7 @@ public class RegrasDeEmpateTest {
 
 		ArrayList<Jogador> jogadores = new ArrayList<>();
 		jogadores.add(jogador);	jogadores.add(jogador2);
-		assertEquals(resultadoEsperado, g.testEmpateIgualBlackJack(jogadores));
+		assertEquals(resultadoEsperado, baralho.testEmpateIgualBlackJack(jogadores));
 	}
 
 
@@ -49,6 +49,19 @@ public class RegrasDeEmpateTest {
 
 		ArrayList<Jogador> jogadores = new ArrayList<>();
 		jogadores.add(jogador);	jogadores.add(jogador2);
-		assertEquals(resultadoEsperado, g.testEmpateMaiorQue21(jogadores));
+		assertEquals(resultadoEsperado, baralho.testEmpateMaiorQue21(jogadores));
+	}
+
+	@ParameterizedTest
+	@CsvSource({"Joaozinho,20,Pedrinho,20,true", "Carlinhos,21,Marquinhos,20,false","Dona Silvana,22,Seu Miguel,30,false","Andre,15,Joao,19,false"}) //PRECISO DE NO MINIMO 2 JOGADORES NA PARTIDA(TODOS DEVEM TER PONTUACAO IGUAL E MENOR QUE 21)
+	public void testVerificaEmpateMenorQue21EntreDoisJogadores(String nomeJogador1, int pontuacao1, String nomeJogador2, int pontuacao2, boolean resultadoEsperado){
+		Jogador jogador = new Jogador(nomeJogador1);
+		jogador.pontuacao = pontuacao1;
+		Jogador jogador2 = new Jogador(nomeJogador2);
+		jogador2.pontuacao = pontuacao2;
+
+		ArrayList<Jogador> jogadores = new ArrayList<>();
+		jogadores.add(jogador);	jogadores.add(jogador2);
+		assertEquals(resultadoEsperado, baralho.testEmpateMenorQue21(jogadores));
 	}
 }
