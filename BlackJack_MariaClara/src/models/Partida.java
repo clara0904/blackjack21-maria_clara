@@ -44,11 +44,11 @@ public class Partida {
             for (Jogador jogador : jogadores) {
                 System.out.println("Jogador: " + jogador.nomeJogador + ", Pontuação: " + jogador.pontuacao + ", Vencedor: " + jogador.vencedor);
             
-                if (baralho.testVitoriaUmVencedor()) {
+                if(jogador.vencedor == true){
                     resultadoPartida = "Vitória de " + jogador.nomeJogador;
                     teveVencedor = true;
-                    break;
-                } else if (baralho.testEmpateMaiorQue21(jogadores) || baralho.testEmpateIgualBlackJack(jogadores)) {
+                }if(teveVencedor == false){
+                    if (baralho.testEmpateMaiorQue21(jogadores) || baralho.testEmpateIgualBlackJack(jogadores)||baralho.testEmpateMenorQue21(jogadores)) {
                     resultadoPartida = "Empate!";
                     teveEmpate = true;
                 } else if (baralho.testSemVitoriaSemEmpate(jogadores) && teveVencedor == false) {
@@ -59,6 +59,7 @@ public class Partida {
                             break;
                         }
                     }
+                }
                 }
             }
 
