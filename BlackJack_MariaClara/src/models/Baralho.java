@@ -6,8 +6,6 @@ import exceptions.ExcecaoPorBaralhoExcedido;
 import exceptions.ExcecaoPorFaltaDeCartasBaralho;
 
 
-
-
 public class Baralho {
     ArrayList <Carta> baralho = new ArrayList<>();
     ArrayList <Carta> cartasJogadas = new ArrayList<>();
@@ -184,6 +182,20 @@ public class Baralho {
         }
         return false;
     }
+
+    public boolean testEmpateMenorQue21(ArrayList<Jogador> jogadores){  //pontuacao igual e menor que 21
+        int cont = 0;
+        int tamanho = jogadores.size();
+
+        for (int i = 0; i < tamanho - 1; i++) {
+            if (jogadores.get(i).pontuacao < 21 && jogadores.get(i).pontuacao == jogadores.get(i + 1).pontuacao) {
+                cont++;
+            }
+        }
+
+        return cont == tamanho - 1; 
+    }
+
 
     public boolean testSemVitoriaSemEmpate(ArrayList<Jogador> jogadores){  //qual jogador chegou mais perto de 21
         if (testVitoriaUmVencedor() || testVitoriaMaisDeUmVencedor(jogadores) || testEmpateMaiorQue21(jogadores) || testEmpateIgualBlackJack(jogadores)) {
