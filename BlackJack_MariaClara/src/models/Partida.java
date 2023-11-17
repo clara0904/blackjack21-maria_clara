@@ -33,7 +33,7 @@ public class Partida {
 
     String resultadoPartida;
     public void imprimeInformacoesPartidas(){
-        System.out.println("\nResultados de todas as partidas:");
+        System.out.println("\n--------Resultados de todas as partidas--------");
         for (Map.Entry<Integer, ArrayList<Jogador>> elemento : informacoesPartidas.entrySet()) {
             Integer numeroPartida = elemento.getKey();
             ArrayList<Jogador> jogadores = elemento.getValue();
@@ -68,7 +68,7 @@ public class Partida {
             System.out.println("O resultado da partida foi: Empate!");
         }
         
-        System.out.println("------");
+        System.out.println("-----------------------------------------------");
         }
     }
 
