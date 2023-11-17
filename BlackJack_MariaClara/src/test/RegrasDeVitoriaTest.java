@@ -24,11 +24,11 @@ import models.Jogador;
  */
 
 public class RegrasDeVitoriaTest {
-    private Baralho g;
+    private Baralho baralho;
 
     @BeforeEach
 	public void setup() {
-		g = new Baralho();
+		baralho = new Baralho();
 	}
 
     @ParameterizedTest		
@@ -38,10 +38,10 @@ public class RegrasDeVitoriaTest {
 		Carta carta2 = new Carta(nome2,valor2);
 		Carta carta3 = new Carta(nome3,valor3);
 		
-		g.addCartasJogadas(carta);
-		g.addCartasJogadas(carta2);
-		g.addCartasJogadas(carta3);
-        int pontuacaoReal = g.somaCartas();
+		baralho.addCartasJogadas(carta);
+		baralho.addCartasJogadas(carta2);
+		baralho.addCartasJogadas(carta3);
+        int pontuacaoReal = baralho.somaCartas();
         assertEquals(pontuacaoEsperada, pontuacaoReal);
 	}
 
@@ -53,10 +53,10 @@ public class RegrasDeVitoriaTest {
 		Carta carta2 = new Carta(nome2,valor2);
 		Carta carta3 = new Carta(nome3,valor3);
 
-		g.addCartasJogadas(carta);
-		g.addCartasJogadas(carta2);
-		g.addCartasJogadas(carta3);
-		assertEquals(resultadoEsperado,g.testVitoriaUmVencedor());
+		baralho.addCartasJogadas(carta);
+		baralho.addCartasJogadas(carta2);
+		baralho.addCartasJogadas(carta3);
+		assertEquals(resultadoEsperado,baralho.testVitoriaUmVencedor());
 	}
 
 
@@ -67,10 +67,10 @@ public class RegrasDeVitoriaTest {
 		Carta carta2 = new Carta(nome2,valor2);
 		Carta carta3 = new Carta(nome3,valor3);
 
-		g.addCartasJogadas(carta);
-		g.addCartasJogadas(carta2);
-		g.addCartasJogadas(carta3);
-		assertEquals(resultadoEsperado,g.testEstouro());
+		baralho.addCartasJogadas(carta);
+		baralho.addCartasJogadas(carta2);
+		baralho.addCartasJogadas(carta3);
+		assertEquals(resultadoEsperado,baralho.testEstouro());
 	}
 
 
@@ -86,7 +86,7 @@ public class RegrasDeVitoriaTest {
 
 		ArrayList<Jogador> jogadores = new ArrayList<>();
 		jogadores.add(jogador);	jogadores.add(jogador2); jogadores.add(jogador3);
-		assertEquals(resultadoEsperado, g.testVitoriaMaisDeUmVencedor(jogadores));
+		assertEquals(resultadoEsperado, baralho.testVitoriaMaisDeUmVencedor(jogadores));
 	}
 
 
@@ -100,7 +100,7 @@ public class RegrasDeVitoriaTest {
 
 		ArrayList<Jogador> jogadores = new ArrayList<>();
 		jogadores.add(jogador);	jogadores.add(jogador2);
-		assertEquals(resultadoEsperado, g.testSemVitoriaSemEmpate(jogadores));
+		assertEquals(resultadoEsperado, baralho.testSemVitoriaSemEmpate(jogadores));
 	}
 
 }
